@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "start": "http-server ./dist -p 3000",
-    "test": "jest ./src"
+    "test": "jest --watch ./src"
   },
   "author": "Marouane Elaich",
   "license": "ISC",
