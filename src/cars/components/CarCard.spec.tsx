@@ -44,4 +44,10 @@ describe('CarCard', () => {
     const wrapper = render(props);
     expect(wrapper.find('img').prop('src')).toEqual(car.pictureUrl);
   });
+
+  it('link', () => {
+    const wrapper = render(props);
+    expect(wrapper.find('.link').prop('href')).toEqual(`/view?sn=${car.stockNumber}`);
+    expect(wrapper.find('.link').text()).toEqual("View details");
+  });
 });
