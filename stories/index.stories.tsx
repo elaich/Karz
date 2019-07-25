@@ -3,6 +3,7 @@ import * as React from 'react';
 import {storiesOf} from '@storybook/react';
 
 import {CarCard} from '../src/cars/components/CarCard.tsx';
+import {carMapperFn} from '../src/cars/mappers/carMapper';
 
 storiesOf('Cars', module)
   .add('CarCard', () => {
@@ -19,5 +20,5 @@ storiesOf('Cars', module)
       pictureUrl: 'http://localhost:3001/car.svg',
     };
 
-    return <CarCard car={car} />
+    return <CarCard car={carMapperFn(car)} />
   })

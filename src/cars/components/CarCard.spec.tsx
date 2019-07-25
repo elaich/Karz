@@ -8,16 +8,10 @@ describe('CarCard', () => {
   };
 
   const car = {
-    stockNumber: 41400,
-    manufacturerName: 'Fiat',
-    modelName: 'Marea',
-    mileage: {
-      number: 100141,
-      unit: 'km',
-    },
-    fuelType: 'Diesel',
-    color: 'white',
-    pictureUrl: 'http://localhost:3001/car.svg',
+    title: 'Fiat Marea',
+    description: 'Stock # 41400 - 100.141 KM - Diesel - White',
+    link: '/view?sn=41400',
+    image: 'http://localhost:3001/car.svg',
   };
 
   const props = {
@@ -26,28 +20,22 @@ describe('CarCard', () => {
 
   it('title', () => {
     const wrapper = render(props);
-    expect(wrapper.find('.title').text()).toEqual(
-      `${car.manufacturerName} ${car.modelName}`,
-    );
+    expect(wrapper.find('.title').text()).toEqual(car.title);
   });
 
   it('description', () => {
     const wrapper = render(props);
-    expect(wrapper.find('.description').text()).toEqual(
-      `Stock # ${car.stockNumber} - ${car.mileage.number} ${
-        car.mileage.unit
-      } - ${car.fuelType} - ${car.color}`,
-    );
+    expect(wrapper.find('.description').text()).toEqual(car.description);
   });
 
   it('image', () => {
     const wrapper = render(props);
-    expect(wrapper.find('img').prop('src')).toEqual(car.pictureUrl);
+    expect(wrapper.find('img').prop('src')).toEqual(car.image);
   });
 
   it('link', () => {
     const wrapper = render(props);
-    expect(wrapper.find('.link').prop('href')).toEqual(`/view?sn=${car.stockNumber}`);
+    expect(wrapper.find('.link').prop('href')).toEqual(car.link);
     expect(wrapper.find('.link').text()).toEqual("View details");
   });
 });
