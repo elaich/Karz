@@ -1,0 +1,37 @@
+{
+  "name": "carspuzzle",
+  "version": "1.0.0",
+  "description": "Simple SPA for cars",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "start": "http-server ./dist -p 3000",
+    "test": "jest ./src"
+  },
+  "author": "Marouane Elaich",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "@types/enzyme": "^3.10.3",
+    "@types/jest": "^24.0.15",
+    "babel-loader": "^8.0.6",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "http-server": "^0.11.1",
+    "jest": "^24.8.0",
+    "ts-jest": "^24.0.2",
+    "ts-loader": "^6.0.4",
+    "typescript": "^3.5.3",
+    "webpack": "^4.37.0",
+    "webpack-cli": "^3.3.6"
+  },
+  "dependencies": {
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}
