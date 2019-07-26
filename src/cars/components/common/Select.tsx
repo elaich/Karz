@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './Select.scss';
 
-interface IProps {
+export interface IProps {
   header: string;
   options: Array<{ label: string; value?: string; checked?: boolean }>;
   select: (value?: string) => void;

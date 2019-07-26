@@ -2,10 +2,11 @@ import * as React from 'react';
 
 import { storiesOf } from '@storybook/react';
 
-import { CarCard } from '../src/cars/components/CarCard';
-import { CarList } from '../src/cars/components/CarList';
-import { CarHeader } from '../src/cars/components/CarHeader';
-import { CarPagination } from '../src/cars/components/CarPagination';
+import { CarCard } from '../src/cars/components/Card';
+import { CarList } from '../src/cars/components/List';
+import { CarHeader } from '../src/cars/components/Header';
+import { CarFilters } from '../src/cars/components/Filters';
+import { CarPagination } from '../src/cars/components/Pagination';
 import { carMapperFn } from '../src/cars/mappers/carMapper';
 
 storiesOf('Cars', module)
@@ -72,4 +73,26 @@ storiesOf('Cars', module)
       ]
     };
     return <CarHeader {...props} />;
+  })
+  .add('CarFilters', () => {
+    const props = {
+      colorOptions: [
+        { label: 'All car colors', checked: true },
+        { label: 'Yellow', value: 'yellow' },
+        { label: 'Red', value: 'red' },
+        { label: 'White', value: 'white' }
+      ],
+      manufacturerOptions: [
+        { label: 'All manufacturers', checked: true },
+        { label: 'Audi', value: 'Audi' },
+        { label: 'BMW', value: 'BMW' },
+        { label: 'Chrysler', value: 'Chrysler' }
+      ],
+      // tslint:disable-next-line:no-console
+      handleSelectColor: (value?: string) => console.log(value),
+      // tslint:disable-next-line:no-console
+      handleSelectManufacturer: (value?: string) => console.log(value)
+    };
+
+    return <CarFilters {...props} />;
   });
