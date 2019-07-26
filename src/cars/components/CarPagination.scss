@@ -1,0 +1,16 @@
+@import '../constants/base';
+
+.pagination {
+  font: 14px $font-family;
+
+  span {
+    padding: 24px 12px;
+    color: $color-3;
+    cursor: pointer;
+  }
+
+  span.disabled {
+    color: $color-2;
+    cursor: unset;
+  }
+}

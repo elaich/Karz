@@ -8,7 +8,9 @@
     "object-literal-sort-keys": false,
     "variable-name": false,
     "jsx-boolean-value": false,
-    "no-unused-variable": true,
+    "allowShortCircuit": true, 
+    "allowTaggedTemplates": true,
+    "allowTernary": true,
     "prettier": true
   },
   "linterOptions": {
