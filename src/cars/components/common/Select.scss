@@ -2,7 +2,7 @@
 
 .select {
   cursor: pointer;
-  max-width: 300px;
+  min-width: 200px;
   font-family: $font-family;
   color: $color-2;
 
@@ -36,7 +36,7 @@
   .options {
     position: absolute;
     width: 100%;
-    max-width: 300px;
+    min-width: 200px;
     padding: 0;
     list-style: none;
     background-color: #fff;

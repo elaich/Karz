@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import '../constants/base';
+
+.car-header {
+  font-family: $font-family;
+  display: flex;
+
+  .left {
+    flex-grow: 2;
+      color: $color-2;
+      font-size: 24px;
+
+    .heading {
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+  }
+
+  .select {
+    flex-grow: 1;
+  }
+}

@@ -4,6 +4,7 @@ import { storiesOf } from '@storybook/react';
 
 import { CarCard } from '../src/cars/components/CarCard';
 import { CarList } from '../src/cars/components/CarList';
+import { CarHeader } from '../src/cars/components/CarHeader';
 import { CarPagination } from '../src/cars/components/CarPagination';
 import { carMapperFn } from '../src/cars/mappers/carMapper';
 
@@ -52,8 +53,23 @@ storiesOf('Cars', module)
     const props = {
       page: 2,
       pages: 10,
+      // tslint:disable-next-line:no-console
       changePage: (page: number) => console.log(page)
     };
 
     return <CarPagination {...props} />;
+  })
+  .add('CarHeader', () => {
+    const props = {
+      pageCount: 10,
+      carsCount: 100,
+      // tslint:disable-next-line:no-console
+      handleSelect: (value: string) => console.log(value),
+      sortOptions: [
+        { label: 'None', checked: true },
+        { label: 'Mileage - Ascending', value: 'asc' },
+        { label: 'Mileage - Descending', value: 'des' }
+      ]
+    };
+    return <CarHeader {...props} />;
   });
