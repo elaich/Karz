@@ -7,8 +7,10 @@ button {
   color: white;
   width: 128px;
   height: 32px;
+  cursor: pointer;
 
   &:active {
     background-color: $color-4;
   }
+
 }

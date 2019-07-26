@@ -2,13 +2,13 @@
 @import '../constants/base';
 
 .car {
-  border: 2px solid $color-1;
+  border: 1px solid $color-1;
   display: flex;
+  padding: 12px;
   margin-bottom: 12px;
   .image {
-    width: 120px;
-    height: 95px;
-    margin: 12px;
+    width: 80px;
+    height: 65px;
     margin-right: 24px;
     img {
       width: 100%;
@@ -16,24 +16,25 @@
     }
   }
   .content {
-    margin: 8px;
     .title {
-      font: bold 24px 'Roboto', sans-serif;
+      font: bold 18px 'Roboto', sans-serif;
       color: $color-2;
       margin: 0px;
-      margin-top: 8px;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
     .description {
       color: $color-2;
-      font: 14px 'Roboto', sans-serif;
+      font: 12px 'Roboto', sans-serif;
       margin: 0;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
     .link {
       color: $color-3;
       text-decoration: none;
-      font: 14px 'Roboto', sans-serif;
+      font: 12px 'Roboto', sans-serif;
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }
