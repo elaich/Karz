@@ -1,16 +1,24 @@
 @import '../constants/base';
 
 .pagination {
+  display: flex;
+  justify-content: center;
   font: 14px $font-family;
 
   span {
     padding: 24px 12px;
     color: $color-3;
     cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   span.disabled {
     color: $color-2;
     cursor: unset;
+    &:hover {
+      text-decoration: none;
+    }
   }
 }
