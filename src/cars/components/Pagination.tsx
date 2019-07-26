@@ -1,5 +1,5 @@
 import * as React from 'react';
-import './CarPagination.scss';
+import './Pagination.scss';
 
 interface IProps {
   page: number;
