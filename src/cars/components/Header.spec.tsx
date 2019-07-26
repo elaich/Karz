@@ -15,29 +15,34 @@ describe('CarHeader', () => {
     ]
   };
 
+  let wrapper;
+  beforeEach(() => {
+    wrapper = shallow(<CarHeader {...props} />);
+  });
+
   it('renders', () => {
-    const wrapper = shallow(<CarHeader {...props} />);
+    wrapper = shallow(<CarHeader {...props} />);
     expect(wrapper).toHaveLength(1);
   });
 
   it('heading', () => {
-    const wrapper = shallow(<CarHeader {...props} />);
+    wrapper = shallow(<CarHeader {...props} />);
     expect(wrapper.find('.heading').text()).toEqual('Available cars');
   });
 
   it('title', () => {
-    const wrapper = shallow(<CarHeader {...props} />);
+    wrapper = shallow(<CarHeader {...props} />);
     expect(wrapper.find('.title').text()).toEqual('Showing 10 of 100 results');
   });
 
   describe('Select', () => {
     it('header', () => {
-      const wrapper = shallow(<CarHeader {...props} />);
+      wrapper = shallow(<CarHeader {...props} />);
       expect(wrapper.find(Select).prop('header')).toEqual('Sort by');
     });
 
     it('onSelect', () => {
-      const wrapper = shallow(<CarHeader {...props} />);
+      wrapper = shallow(<CarHeader {...props} />);
       wrapper
         .find(Select)
         .props()
@@ -46,7 +51,7 @@ describe('CarHeader', () => {
     });
 
     it('options', () => {
-      const wrapper = shallow(<CarHeader {...props} />);
+      wrapper = shallow(<CarHeader {...props} />);
       expect(wrapper.find(Select).prop('options')).toEqual(props.sortOptions);
     });
   });
