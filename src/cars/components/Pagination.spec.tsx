@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
-import { CarPagination } from './CarPagination';
+import { CarPagination } from './Pagination';
 
 describe('CarPagination', () => {
   const render = (iProps: any) => {

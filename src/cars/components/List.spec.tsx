@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
-import { CarList } from './CarList';
-import { CarCard } from './CarCard';
+import { CarList } from './List';
+import { CarCard } from './Card';
 
 describe('Car List', () => {
   it('shows list of cars', () => {

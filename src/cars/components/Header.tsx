@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Select } from './common/Select';
-import './CarHeader.scss';
+import './Header.scss';
 
 interface IProps {
   carsCount: number;
