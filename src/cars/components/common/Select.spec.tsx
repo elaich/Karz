@@ -4,6 +4,7 @@ import { shallow } from 'enzyme';
 
 describe('Select', () => {
   const props = {
+    header: 'Sort by',
     options: [
       { label: 'None', checked: true },
       { label: 'Mileage - Ascending', value: 'asc' },
@@ -11,6 +12,11 @@ describe('Select', () => {
     ],
     select: jest.fn()
   };
+
+  it('prints header', () => {
+    const wrapper = shallow(<Select {...props} />);
+    expect(wrapper.find('.header').text()).toEqual('Sort by');
+  });
 
   it('can show options', () => {
     const wrapper = shallow(<Select {...props} />);

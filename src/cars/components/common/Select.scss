@@ -6,6 +6,11 @@
   font-family: $font-family;
   color: $color-2;
 
+  .header {
+    margin-bottom: 12px;
+    font-size: 14px;
+  }
+
   .select-box {
     border: 1px solid $color-1;
     padding: 12px;

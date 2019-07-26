@@ -2,6 +2,7 @@ import * as React from 'react';
 import './Select.scss';
 
 interface IProps {
+  header: string;
   options: Array<{ label: string; value?: string; checked?: boolean }>;
   select: (value?: string) => void;
 }
@@ -24,6 +25,7 @@ export class Select extends React.Component<IProps> {
     img_class = this.state.opened ? img_class + 'select-box__open' : img_class;
     return (
       <div className='select'>
+        <div className='header'>{props.header}</div>
         <div className='select-box' onClick={this.toggle}>
           <div className='title'>
             {props.options.find(option => option.checked).label}
