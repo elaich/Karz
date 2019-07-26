@@ -2,6 +2,7 @@ import * as React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
 import { CarFilters } from './Filters';
 import { Select, IProps as ISelect } from './common/Select';
+import { Button } from './common/Button';
 
 describe('Car Filters', () => {
   const props = {
@@ -17,6 +18,7 @@ describe('Car Filters', () => {
       { label: 'BMW', value: 'BMW' },
       { label: 'Chrysler', value: 'Chrysler' }
     ],
+    filter: jest.fn(),
     handleSelectColor: jest.fn(),
     handleSelectManufacturer: jest.fn()
   };
@@ -27,6 +29,20 @@ describe('Car Filters', () => {
 
   beforeEach(() => {
     wrapper = shallow(<CarFilters {...props} />);
+  });
+
+  describe('Filter Button', () => {
+    it('label', () => {
+      expect(wrapper.find(Button).prop('label')).toEqual('Filter');
+    });
+
+    it('handleClick', () => {
+      wrapper
+        .find(Button)
+        .props()
+        .handleClick();
+      expect(props.filter).toBeCalled();
+    });
   });
 
   describe('Color filters', () => {
