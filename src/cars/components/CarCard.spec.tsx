@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { CarCard } from './CarCard';
-import {shallow} from 'enzyme';
+import { shallow } from 'enzyme';
 
 describe('CarCard', () => {
   const render = (iProps: any) => {
@@ -11,11 +11,11 @@ describe('CarCard', () => {
     title: 'Fiat Marea',
     description: 'Stock # 41400 - 100.141 KM - Diesel - White',
     link: '/view?sn=41400',
-    image: 'http://localhost:3001/car.svg',
+    image: 'http://localhost:3001/car.svg'
   };
 
   const props = {
-    car,
+    car
   };
 
   it('title', () => {
@@ -36,6 +36,6 @@ describe('CarCard', () => {
   it('link', () => {
     const wrapper = render(props);
     expect(wrapper.find('.link').prop('href')).toEqual(car.link);
-    expect(wrapper.find('.link').text()).toEqual("View details");
+    expect(wrapper.find('.link').text()).toEqual('View details');
   });
 });
