@@ -54,6 +54,7 @@ describe('ListView', () => {
         { label: 'BMW', value: 'BMW' },
         { label: 'Chrysler', value: 'Chrysler' }
       ],
+      filter: jest.fn(),
       handleSelectColor: jest.fn(),
       handleSelectManufacturer: jest.fn()
     },
