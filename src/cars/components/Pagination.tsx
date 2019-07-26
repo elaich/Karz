@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './Pagination.scss';
 
-interface IProps {
+export interface IProps {
   page: number;
   pages: number;
   changePage: (page: number) => void;

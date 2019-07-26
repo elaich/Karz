@@ -1,9 +1,10 @@
 import * as React from 'react';
+import { IOption } from '../../models/option';
 import './Select.scss';
 
 export interface IProps {
   header: string;
-  options: Array<{ label: string; value?: string; checked?: boolean }>;
+  options: IOption[];
   select: (value?: string) => void;
 }
 

@@ -1,0 +1,11 @@
+.list-view {
+  padding: 24px;
+  display: flex;
+  &__filters  {
+    flex-grow: 1;
+    margin-right: 24px;
+  }
+  &__content  {
+    flex-grow: 2;
+  }
+}

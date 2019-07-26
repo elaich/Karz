@@ -1,9 +1,10 @@
 import * as React from 'react';
+import { IOption } from '../models/option';
 import { Select } from './common/Select';
 
-interface IProps {
-  colorOptions: Array<{ label: string; value?: string; checked?: boolean }>;
-  manufacturerOptions: Array<{ label: string; value?: string; checked?: boolean }>;
+export interface IProps {
+  colorOptions: IOption[];
+  manufacturerOptions: IOption[];
   handleSelectColor: (value?: string) => void;
   handleSelectManufacturer: (value?: string) => void;
 }

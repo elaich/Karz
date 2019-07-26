@@ -1,12 +1,13 @@
 import * as React from 'react';
 import { Select } from './common/Select';
+import { IOption } from '../models/option';
 import './Header.scss';
 
-interface IProps {
+export interface IProps {
   carsCount: number;
   pageCount: number;
   handleSelect: (value: string) => void;
-  sortOptions: Array<{ label: string; value?: string; checked?: boolean }>;
+  sortOptions: IOption[];
 }
 
 export const CarHeader: React.FC<IProps> = props => (

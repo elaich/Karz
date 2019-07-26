@@ -1,9 +1,11 @@
 import * as React from 'react';
 import { CarCard } from './Card';
+import { CarViewModel } from '../models/carViewModel';
 
-interface IProps {
-  cars: any[];
+export interface IProps {
+  cars: CarViewModel[];
 }
+
 export const CarList: React.FC<IProps> = props => (
   <div>
     {props.cars.map(car => (
