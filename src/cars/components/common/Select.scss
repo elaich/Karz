@@ -1,0 +1,45 @@
+@import '../../constants/base';
+
+.select {
+  cursor: pointer;
+  max-width: 300px;
+  font-family: $font-family;
+  color: $color-2;
+
+  .select-box {
+    border: 1px solid $color-1;
+    padding: 12px;
+    position: relative;
+    display: block;
+    margin: 0 0 12px 0;
+    font-size: 18px;
+
+    &__icon {
+      position: absolute;
+      top: 50%;
+      right: 15px;
+      transform: translateY(-50%);
+      width: 20px;
+      opacity: 0.3;
+      transition: 0.2s ease;
+    }
+    &__open {
+      transform: translateY(-50%) scaleY(-1);
+    }
+  }
+
+  .options {
+    position: absolute;
+    width: 100%;
+    max-width: 300px;
+    padding: 0;
+    list-style: none;
+    background-color: #fff;
+    margin: 0;
+
+    li {
+      padding: 12px;
+      border: 1px solid $color-1;
+    }
+  }
+}
