@@ -1,4 +1,4 @@
-import * as React from 'react'
+import * as React from 'react';
 import { CarCard } from './CarCard';
 
 interface IProps {
@@ -6,6 +6,8 @@ interface IProps {
 }
 export const CarList: React.FC<IProps> = props => (
   <div>
-    {props.cars.map(car => <CarCard key={car.link} car={car} />)}
+    {props.cars.map(car => (
+      <CarCard key={car.link} car={car} />
+    ))}
   </div>
-)
+);

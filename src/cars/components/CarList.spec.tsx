@@ -31,6 +31,6 @@ describe('Car List', () => {
     };
 
     const wrapper = shallow(<CarList {...props} />);
-    wrapper.find(CarCard).map((card, index) => expect(card.prop('car')).toEqual(cars[index]))
+    wrapper.find(CarCard).map((card, index) => expect(card.prop('car')).toEqual(cars[index]));
   });
 });

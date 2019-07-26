@@ -1,10 +1,11 @@
 import * as React from 'react';
 
-import {storiesOf} from '@storybook/react';
+import { storiesOf } from '@storybook/react';
 
-import {CarCard} from '../src/cars/components/CarCard';
-import {CarList} from '../src/cars/components/CarList';
-import {carMapperFn} from '../src/cars/mappers/carMapper';
+import { CarCard } from '../src/cars/components/CarCard';
+import { CarList } from '../src/cars/components/CarList';
+import { CarPagination } from '../src/cars/components/CarPagination';
+import { carMapperFn } from '../src/cars/mappers/carMapper';
 
 storiesOf('Cars', module)
   .add('CarCard', () => {
@@ -14,11 +15,11 @@ storiesOf('Cars', module)
       modelName: 'Marea',
       mileage: {
         number: 100141,
-        unit: 'km',
+        unit: 'km'
       },
       fuelType: 'Diesel',
       color: 'white',
-      pictureUrl: 'http://localhost:3001/car.svg',
+      pictureUrl: 'http://localhost:3001/car.svg'
     };
 
     return <CarCard car={carMapperFn(car)} />;
@@ -45,6 +46,14 @@ storiesOf('Cars', module)
       }
     ];
 
-    return <CarList cars={cars} />
+    return <CarList cars={cars} />;
+  })
+  .add('CarPagination', () => {
+    const props = {
+      page: 2,
+      pages: 10,
+      changePage: (page: number) => console.log(page)
+    };
 
+    return <CarPagination {...props} />;
   });
