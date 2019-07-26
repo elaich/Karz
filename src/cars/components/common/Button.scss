@@ -1,0 +1,14 @@
+@import '../../constants/base.scss';
+
+button {
+  font: 14px $font-family;
+  background-color: $color-3;
+  border: none;
+  color: white;
+  width: 128px;
+  height: 32px;
+
+  &:active {
+    background-color: $color-4;
+  }
+}
