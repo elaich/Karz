@@ -3,6 +3,7 @@ import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import { CarCard } from '../src/cars/components/list/Card';
+import { LoadingCarCard } from '../src/cars/components/list/LoadingCard';
 import { CarList } from '../src/cars/components/list/List';
 import { CarHeader } from '../src/cars/components/list/Header';
 import { CarFilters } from '../src/cars/components/list/Filters';
@@ -27,6 +28,10 @@ storiesOf('Cars', module)
 
     return <CarCard car={carMapperFn(car)} />;
   })
+  .add('LoadingCarCard', () => {
+    return <LoadingCarCard />;
+  })
+
   .add('CarList', () => {
     const cars = [
       {
