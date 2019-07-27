@@ -14,6 +14,10 @@ export const Api = {
     return fetch(url).then(response => response.json());
   },
 
+  fetchCar: (stockNumber: number) => {
+    return fetch(`/cars/${stockNumber}`).then(response => response.json());
+  },
+
   fetchColors: () => {
     return fetch('/colors').then(response => response.json());
   },

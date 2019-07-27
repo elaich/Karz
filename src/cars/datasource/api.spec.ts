@@ -29,6 +29,12 @@ describe('Api', () => {
     expect(response).toEqual({ hello: 'world' });
   });
 
+  it('can fetch car', async () => {
+    const response = await Api.fetchCar(1010);
+    expect(fetchMock.called('/cars/1010')).toBe(true);
+    expect(response).toEqual({ hello: 'world' });
+  });
+
   it('can fetch manufacturers', async () => {
     const response = await Api.fetchManufacturers();
     expect(fetchMock.called('/manufacturers')).toBe(true);

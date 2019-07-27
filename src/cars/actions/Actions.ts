@@ -5,7 +5,9 @@ import { manufacturerMapperFn } from '../mappers/manufacturerMapper';
 import { colorMapperFn } from '../mappers/colorMapper';
 import { IOption } from '../models/option';
 import {
+  TOGGLE_FAVOURITE,
   UPDATE_CARS,
+  UPDATE_CAR,
   UPDATE_SORT,
   UPDATE_PAGE,
   UPDATE_PAGES,
@@ -16,6 +18,11 @@ import {
   UPDATE_COLORS,
   CarsActionType
 } from '../constants/ActionTypes';
+
+export const updateCar = (car: CarViewModel): CarsActionType => ({
+  car,
+  type: UPDATE_CAR
+});
 
 export const updateCars = (cars: CarViewModel[]): CarsActionType => ({
   cars,
@@ -55,6 +62,11 @@ export const updateSort = (sort?: string): CarsActionType => ({
 export const updatePage = (page: number): CarsActionType => ({
   page,
   type: UPDATE_PAGE
+});
+
+export const toggleFavourite = (stockNumber: number): CarsActionType => ({
+  stockNumber,
+  type: TOGGLE_FAVOURITE
 });
 
 export const updatePages = (pages: number): CarsActionType => ({

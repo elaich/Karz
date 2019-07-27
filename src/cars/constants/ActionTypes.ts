@@ -2,6 +2,7 @@ import { CarViewModel } from '../models/carViewModel';
 import { IOption } from '../models/option';
 
 export const UPDATE_CARS = 'UPDATE_CARS';
+export const UPDATE_CAR = 'UPDATE_CAR';
 export const UPDATE_COLORS = 'UPDATE_COLORS';
 export const UPDATE_MANUFACTURERS = 'UPDATE_MANUFACTURERS';
 export const UPDATE_CARS_COUNT = 'UPDATE_CARS_COUNT';
@@ -10,6 +11,12 @@ export const UPDATE_MANUFACTURER_FILTER = 'UPDATE_MANUFACTURER_FILTER';
 export const UPDATE_SORT = 'UPDATE_SORT';
 export const UPDATE_PAGE = 'UPDATE_PAGE';
 export const UPDATE_PAGES = 'UPDATE_PAGES';
+export const TOGGLE_FAVOURITE = 'TOGGLE_FAVOURITE';
+
+interface IUpdateCarAction {
+  type: typeof UPDATE_CAR;
+  car: CarViewModel;
+}
 
 interface IUpdateCarsAction {
   type: typeof UPDATE_CARS;
@@ -56,8 +63,14 @@ interface IUpdatePagesAction {
   pages: number;
 }
 
+export interface IToggleFavourite {
+  type: typeof TOGGLE_FAVOURITE;
+  stockNumber: number;
+}
+
 export type CarsActionType =
   | IUpdateCarsAction
+  | IUpdateCarAction
   | IUpdateColorsAction
   | IUpdateManufacturersAction
   | IUpdateCarsCountAction
@@ -65,4 +78,5 @@ export type CarsActionType =
   | IUpdateManufacturerFilterAction
   | IUpdateSortAction
   | IUpdatePageAction
+  | IToggleFavourite
   | IUpdatePagesAction;

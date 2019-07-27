@@ -19,6 +19,21 @@ describe('actions', () => {
     expect(actions.updateCars(cars)).toEqual(expectedAction);
   });
 
+  it('should create an action to update car', () => {
+    const car = {
+      title: 'Skoda Kodiaq',
+      description: 'Stock # 10055 - 179.684 KM - Petrol - Yellow',
+      image: 'http://localhost:3001/car.svg',
+      link: '/view?sn=10055'
+    };
+    const expectedAction = {
+      type: types.UPDATE_CAR,
+      car
+    };
+
+    expect(actions.updateCar(car)).toEqual(expectedAction);
+  });
+
   it('should create an action to update color options', () => {
     const colors = [{ label: 'Yellow', value: 'yellow' }, { label: 'Red', value: 'red' }];
 
@@ -93,5 +108,14 @@ describe('actions', () => {
     };
 
     expect(actions.updatePages(9)).toEqual(expectedAction);
+  });
+
+  it('should create an action to toggle favourites', () => {
+    const expectedAction = {
+      type: types.TOGGLE_FAVOURITE,
+      stockNumber: 42090
+    };
+
+    expect(actions.toggleFavourite(42090)).toEqual(expectedAction);
   });
 });

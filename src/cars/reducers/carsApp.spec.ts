@@ -1,10 +1,12 @@
 import { carsApp, IState } from './carsApp';
 import { IOption } from '../models/option';
 import {
+  toggleFavourite,
   updatePage,
   updatePages,
   updateSort,
   updateCars,
+  updateCar,
   updateColorFilter,
   updateManufacturerFilter,
   updateColorOptions,
@@ -15,11 +17,24 @@ import {
 describe('cars reducer', () => {
   const initialState: IState = {
     page: 1,
+    pages: 1,
     cars: [],
+    favourites: [],
     colorOptions: [],
     sortOptions: [],
     manufacturerOptions: []
   };
+
+  it('should update car', () => {
+    const car = {
+      title: 'Skoda Kodiaq',
+      description: 'Stock # 10055 - 179.684 KM - Petrol - Yellow',
+      image: 'http://localhost:3001/car.svg',
+      link: '/view?sn=10055'
+    };
+
+    expect(carsApp(initialState, updateCar(car))).toEqual({ ...initialState, car });
+  });
 
   it('should update cars', () => {
     const cars = [
@@ -87,6 +102,17 @@ describe('cars reducer', () => {
 
   it('should update page', () => {
     expect(carsApp(initialState, updatePage(10))).toEqual({ ...initialState, page: 10 });
+  });
+
+  it('should toggle favourite', () => {
+    const first = carsApp(initialState, toggleFavourite(1));
+    expect(first.favourites).toEqual([1]);
+
+    const second = carsApp({ ...initialState, favourites: [2] }, toggleFavourite(1));
+    expect(second.favourites).toEqual([2, 1]);
+
+    const third = carsApp({ ...initialState, favourites: [1, 2] }, toggleFavourite(2));
+    expect(third.favourites).toEqual([1]);
   });
 
   it('should update pages', () => {
