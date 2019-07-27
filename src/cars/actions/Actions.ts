@@ -82,6 +82,12 @@ export const fetchCars = (parameters?: IParameters) => (dispatch: any) => {
   });
 };
 
+export const fetchCar = (stockNumber: number) => (dispatch: any) => {
+  Api.fetchCar(stockNumber).then(({ car }) => {
+    dispatch(updateCar(carMapperFn(car)));
+  });
+};
+
 export const fetchColors = () => (dispatch: any) => {
   Api.fetchColors().then(({ colors }) => {
     dispatch(updateColorOptions(colors.map(colorMapperFn)));

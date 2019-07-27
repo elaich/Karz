@@ -32,6 +32,7 @@ export interface IState {
 
 const initialState: IState = {
   cars: [],
+  favourites: [],
   page: 1,
   pages: 1,
   colorOptions: [{ label: 'All car colors', checked: true }],
