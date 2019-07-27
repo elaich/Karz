@@ -5,6 +5,7 @@ import {
   updateSort,
   updateCars,
   updateColorFilter,
+  updateManufacturerFilter,
   updateColorOptions,
   updateManufacturerOptions,
   updateCarsCount
@@ -57,7 +58,21 @@ describe('cars reducer', () => {
   });
 
   it('should update color filter', () => {
-    expect(carsApp(initialState, updateColorFilter('yellow'))).toEqual({ ...initialState, colorFilter: 'yellow' });
+    const colorOptions: IOption[] = [{ label: 'Yellow', value: 'yellow' }, { label: 'White', value: 'white' }];
+
+    const result = carsApp({ ...initialState, colorOptions }, updateColorFilter('yellow'));
+    expect(result.colorFilter).toEqual('yellow');
+
+    expect(result.colorOptions[0].checked).toEqual(true);
+  });
+
+  it('should update manufacturer filter', () => {
+    const manufacturerOptions: IOption[] = [{ label: 'BMW', value: 'BMW' }, { label: 'Fiat', value: 'Fiat' }];
+
+    const result = carsApp({ ...initialState, manufacturerOptions }, updateManufacturerFilter('BMW'));
+    expect(result.manufacturerFilter).toEqual('BMW');
+
+    expect(result.manufacturerOptions[0].checked).toEqual(true);
   });
 
   it('should update sort', () => {

@@ -4,6 +4,7 @@ import {
   CarsActionType,
   UPDATE_COLOR_FILTER,
   UPDATE_CARS_COUNT,
+  UPDATE_MANUFACTURER_FILTER,
   UPDATE_MANUFACTURERS,
   UPDATE_CARS,
   UPDATE_PAGE,
@@ -15,12 +16,14 @@ export interface IState {
   cars: CarViewModel[];
   colorOptions: IOption[];
   manufacturerOptions: IOption[];
+  colorFilter?: string;
+  manufacturerFilter?: string;
 }
 
 const initialState: IState = {
   cars: [],
-  colorOptions: [],
-  manufacturerOptions: []
+  colorOptions: [{ label: 'All car colors', checked: true }],
+  manufacturerOptions: [{ label: 'All manufacturers', checked: true }]
 };
 
 export const carsApp = (state: IState = initialState, action: CarsActionType) => {
@@ -37,7 +40,14 @@ export const carsApp = (state: IState = initialState, action: CarsActionType) =>
     case UPDATE_CARS_COUNT:
       return { ...state, carsCount: action.carsCount };
     case UPDATE_COLOR_FILTER:
-      return { ...state, colorFilter: action.color };
+      const colorOptions = state.colorOptions.map(option => ({ ...option, checked: option.value === action.color }));
+      return { ...state, colorFilter: action.color, colorOptions };
+    case UPDATE_MANUFACTURER_FILTER:
+      const manufacturerOptions = state.manufacturerOptions.map(option => ({
+        ...option,
+        checked: option.value === action.manufacturer
+      }));
+      return { ...state, manufacturerFilter: action.manufacturer, manufacturerOptions };
     case UPDATE_SORT:
       return { ...state, sort: action.sort };
     case UPDATE_PAGE:
