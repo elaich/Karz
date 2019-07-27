@@ -3,7 +3,19 @@ import { CarViewModel } from '../models/carViewModel';
 import {
   CarsActionType,
   IToggleFavourite,
+  IUpdateCarAction,
+  IUpdateCarsAction,
+  IUpdateColorsAction,
+  IUpdateCarsCountAction,
+  IUpdateManufacturerFilterAction,
+  IUpdateManufacturersAction,
+  IUpdateColorFilterAction,
+  IUpdateSortAction,
+  IUpdatePagesAction,
+  IUpdatePageAction,
+  IFetchCarsLoading,
   UPDATE_COLOR_FILTER,
+  FETCH_CARS_LOADING,
   TOGGLE_FAVOURITE,
   UPDATE_CARS_COUNT,
   UPDATE_MANUFACTURER_FILTER,
@@ -47,43 +59,93 @@ export const initialState: IState = {
 export const carsApp = (state: IState = initialState, action: CarsActionType) => {
   switch (action.type) {
     case UPDATE_CAR:
-      return { ...state, car: action.car };
+      return updateCar(state, action);
     case UPDATE_CARS:
-      return { ...state, cars: action.cars };
+      return updateCars(state, action);
     case UPDATE_COLORS:
-      return { ...state, colorOptions: [{ label: 'All car colors', checked: true }, ...action.colors] };
+      return updateColors(state, action);
     case UPDATE_MANUFACTURERS:
-      return {
-        ...state,
-        manufacturerOptions: [{ label: 'All manufacturers', checked: true }, ...action.manufacturers]
-      };
+      return updateManufacturers(state, action);
     case UPDATE_CARS_COUNT:
-      return { ...state, carsCount: action.carsCount };
+      return updateCarsCount(state, action);
     case UPDATE_COLOR_FILTER:
-      const colorOptions = state.colorOptions.map(option => ({ ...option, checked: option.value === action.color }));
-      return { ...state, colorFilter: action.color, colorOptions };
+      return updateColorFilter(state, action);
     case UPDATE_MANUFACTURER_FILTER:
-      const manufacturerOptions = state.manufacturerOptions.map(option => ({
-        ...option,
-        checked: option.value === action.manufacturer
-      }));
-      return { ...state, manufacturerFilter: action.manufacturer, manufacturerOptions };
+      return updateManufacturerFilter(state, action);
     case UPDATE_SORT:
-      const sortOptions = state.sortOptions.map(option => ({
-        ...option,
-        checked: option.value === action.sort
-      }));
-      return { ...state, sort: action.sort, sortOptions };
+      return updateSort(state, action);
     case UPDATE_PAGE:
-      return { ...state, page: action.page };
+      return updatePage(state, action);
     case UPDATE_PAGES:
-      return { ...state, pages: action.pages };
+      return updatePages(state, action);
+    case FETCH_CARS_LOADING:
+      return fetchCarsLoading(state, action);
     case TOGGLE_FAVOURITE:
       return toggleFavourite(state, action);
     default:
       return state;
   }
 };
+
+const updateCar = (state: IState, action: IUpdateCarAction) => ({
+  ...state,
+  car: action.car
+});
+const updateCars = (state: IState, action: IUpdateCarsAction) => ({
+  ...state,
+  cars: action.cars
+});
+
+const updateColors = (state: IState, action: IUpdateColorsAction) => ({
+  ...state,
+  colorOptions: [{ label: 'All car colors', checked: true }, ...action.colors]
+});
+
+const updateManufacturers = (state: IState, action: IUpdateManufacturersAction) => ({
+  ...state,
+  manufacturerOptions: [{ label: 'All manufacturers', checked: true }, ...action.manufacturers]
+});
+
+const updateCarsCount = (state: IState, action: IUpdateCarsCountAction) => ({
+  ...state,
+  carsCount: action.carsCount
+});
+
+const updateColorFilter = (state: IState, action: IUpdateColorFilterAction) => {
+  const colorOptions = state.colorOptions.map(option => ({ ...option, checked: option.value === action.color }));
+  return { ...state, colorFilter: action.color, colorOptions };
+};
+
+const updateManufacturerFilter = (state: IState, action: IUpdateManufacturerFilterAction) => {
+  const manufacturerOptions = state.manufacturerOptions.map(option => ({
+    ...option,
+    checked: option.value === action.manufacturer
+  }));
+  return { ...state, manufacturerFilter: action.manufacturer, manufacturerOptions };
+};
+
+const updateSort = (state: IState, action: IUpdateSortAction) => {
+  const sortOptions = state.sortOptions.map(option => ({
+    ...option,
+    checked: option.value === action.sort
+  }));
+  return { ...state, sort: action.sort, sortOptions };
+};
+
+const updatePage = (state: IState, action: IUpdatePageAction) => ({
+  ...state,
+  page: action.page
+});
+
+const updatePages = (state: IState, action: IUpdatePagesAction) => ({
+  ...state,
+  pages: action.pages
+});
+
+const fetchCarsLoading = (state: IState, action: IFetchCarsLoading) => ({
+  ...state,
+  carsLoading: action.loading
+});
 
 const toggleFavourite = (state: IState, action: IToggleFavourite) => {
   if (state.favourites.indexOf(action.stockNumber) === -1) {

@@ -118,4 +118,13 @@ describe('actions', () => {
 
     expect(actions.toggleFavourite(42090)).toEqual(expectedAction);
   });
+
+  it('should create an action to fetch cars loading', () => {
+    const expectedAction = {
+      loading: true,
+      type: types.FETCH_CARS_LOADING
+    };
+
+    expect(actions.fetchCarsLoading(true)).toEqual(expectedAction);
+  });
 });

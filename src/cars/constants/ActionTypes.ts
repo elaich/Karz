@@ -2,6 +2,7 @@ import { CarViewModel } from '../models/carViewModel';
 import { IOption } from '../models/option';
 
 export const UPDATE_CARS = 'UPDATE_CARS';
+export const FETCH_CARS_LOADING = 'FETCH_CARS_LOADING';
 export const UPDATE_CAR = 'UPDATE_CAR';
 export const UPDATE_COLORS = 'UPDATE_COLORS';
 export const UPDATE_MANUFACTURERS = 'UPDATE_MANUFACTURERS';
@@ -13,52 +14,52 @@ export const UPDATE_PAGE = 'UPDATE_PAGE';
 export const UPDATE_PAGES = 'UPDATE_PAGES';
 export const TOGGLE_FAVOURITE = 'TOGGLE_FAVOURITE';
 
-interface IUpdateCarAction {
+export interface IUpdateCarAction {
   type: typeof UPDATE_CAR;
   car: CarViewModel;
 }
 
-interface IUpdateCarsAction {
+export interface IUpdateCarsAction {
   type: typeof UPDATE_CARS;
   cars: CarViewModel[];
 }
 
-interface IUpdateColorsAction {
+export interface IUpdateColorsAction {
   type: typeof UPDATE_COLORS;
   colors: IOption[];
 }
 
-interface IUpdateManufacturersAction {
+export interface IUpdateManufacturersAction {
   type: typeof UPDATE_MANUFACTURERS;
   manufacturers: IOption[];
 }
 
-interface IUpdateCarsCountAction {
+export interface IUpdateCarsCountAction {
   type: typeof UPDATE_CARS_COUNT;
   carsCount: number;
 }
 
-interface IUpdateColorFilterAction {
+export interface IUpdateColorFilterAction {
   type: typeof UPDATE_COLOR_FILTER;
   color: string;
 }
 
-interface IUpdateManufacturerFilterAction {
+export interface IUpdateManufacturerFilterAction {
   type: typeof UPDATE_MANUFACTURER_FILTER;
   manufacturer: string;
 }
 
-interface IUpdateSortAction {
+export interface IUpdateSortAction {
   type: typeof UPDATE_SORT;
   sort: string;
 }
 
-interface IUpdatePageAction {
+export interface IUpdatePageAction {
   type: typeof UPDATE_PAGE;
   page: number;
 }
 
-interface IUpdatePagesAction {
+export interface IUpdatePagesAction {
   type: typeof UPDATE_PAGES;
   pages: number;
 }
@@ -68,8 +69,14 @@ export interface IToggleFavourite {
   stockNumber: number;
 }
 
+export interface IFetchCarsLoading {
+  type: typeof FETCH_CARS_LOADING;
+  loading: boolean;
+}
+
 export type CarsActionType =
   | IUpdateCarsAction
+  | IFetchCarsLoading
   | IUpdateCarAction
   | IUpdateColorsAction
   | IUpdateManufacturersAction

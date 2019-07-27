@@ -2,6 +2,7 @@ import { carsApp, IState } from './carsApp';
 import { IOption } from '../models/option';
 import {
   toggleFavourite,
+  fetchCarsLoading,
   updatePage,
   updatePages,
   updateSort,
@@ -117,5 +118,9 @@ describe('cars reducer', () => {
 
   it('should update pages', () => {
     expect(carsApp(initialState, updatePages(100))).toEqual({ ...initialState, pages: 100 });
+  });
+
+  it('should update cars loading', () => {
+    expect(carsApp(initialState, fetchCarsLoading(true))).toEqual({ ...initialState, carsLoading: true });
   });
 });

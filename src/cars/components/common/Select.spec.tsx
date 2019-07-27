@@ -15,7 +15,7 @@ describe('Select', () => {
 
   it('prints header', () => {
     const wrapper = shallow(<Select {...props} />);
-    expect(wrapper.find('.header').text()).toEqual('Sort by');
+    expect(wrapper.find('.select__header').text()).toEqual('Sort by');
   });
 
   it('can show options', () => {

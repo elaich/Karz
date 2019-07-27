@@ -6,6 +6,7 @@ import { colorMapperFn } from '../mappers/colorMapper';
 import { IOption } from '../models/option';
 import {
   TOGGLE_FAVOURITE,
+  FETCH_CARS_LOADING,
   UPDATE_CARS,
   UPDATE_CAR,
   UPDATE_SORT,
@@ -72,6 +73,11 @@ export const toggleFavourite = (stockNumber: number): CarsActionType => ({
 export const updatePages = (pages: number): CarsActionType => ({
   pages,
   type: UPDATE_PAGES
+});
+
+export const fetchCarsLoading = (loading: boolean): CarsActionType => ({
+  loading,
+  type: FETCH_CARS_LOADING
 });
 
 export const fetchCars = (parameters?: IParameters) => (dispatch: any) => {
