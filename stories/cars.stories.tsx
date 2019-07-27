@@ -2,11 +2,11 @@ import * as React from 'react';
 
 import { storiesOf } from '@storybook/react';
 
-import { CarCard } from '../src/cars/components/Card';
-import { CarList } from '../src/cars/components/List';
-import { CarHeader } from '../src/cars/components/Header';
-import { CarFilters } from '../src/cars/components/Filters';
-import { CarPagination } from '../src/cars/components/Pagination';
+import { CarCard } from '../src/cars/components/list/Card';
+import { CarList } from '../src/cars/components/list/List';
+import { CarHeader } from '../src/cars/components/list/Header';
+import { CarFilters } from '../src/cars/components/list/Filters';
+import { CarPagination } from '../src/cars/components/list/Pagination';
 import { ListView } from '../src/cars/views/List';
 import { carMapperFn } from '../src/cars/mappers/carMapper';
 
