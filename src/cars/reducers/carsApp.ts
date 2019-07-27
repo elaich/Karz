@@ -14,6 +14,7 @@ import {
 
 export interface IState {
   cars: CarViewModel[];
+  page: number;
   colorOptions: IOption[];
   sortOptions: IOption[];
   manufacturerOptions: IOption[];
@@ -24,6 +25,7 @@ export interface IState {
 
 const initialState: IState = {
   cars: [],
+  page: 1,
   colorOptions: [{ label: 'All car colors', checked: true }],
   manufacturerOptions: [{ label: 'All manufacturers', checked: true }],
   sortOptions: [

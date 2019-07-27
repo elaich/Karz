@@ -13,6 +13,7 @@ import {
 
 describe('cars reducer', () => {
   const initialState: IState = {
+    page: 1,
     cars: [],
     colorOptions: [],
     sortOptions: [],
