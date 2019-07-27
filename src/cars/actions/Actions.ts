@@ -1,4 +1,8 @@
 import { CarViewModel } from '../models/carViewModel';
+import { Api, IParameters } from '../datasource/api';
+import { carMapperFn } from '../mappers/carMapper';
+import { manufacturerMapperFn } from '../mappers/manufacturerMapper';
+import { colorMapperFn } from '../mappers/colorMapper';
 import { IOption } from '../models/option';
 import {
   UPDATE_CARS,
@@ -51,3 +55,22 @@ export const updatePage = (page: number): CarsActionType => ({
   page,
   type: UPDATE_PAGE
 });
+
+export const fetchCars = (parameters?: IParameters) => (dispatch: any) => {
+  Api.fetchCars(parameters).then(({ cars, carsCount }) => {
+    dispatch(updateCars(cars.map(carMapperFn)));
+    dispatch(updateCarsCount(carsCount));
+  });
+};
+
+export const fetchColors = () => (dispatch: any) => {
+  Api.fetchColors().then(({ colors }) => {
+    dispatch(updateColorOptions(colors.map(colorMapperFn)));
+  });
+};
+
+export const fetchManufacturers = () => (dispatch: any) => {
+  Api.fetchManufacturers().then(({ manufacturers }) => {
+    dispatch(updateManufacturerOptions(manufacturers.map(manufacturerMapperFn)));
+  });
+};
