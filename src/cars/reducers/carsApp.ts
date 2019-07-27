@@ -15,15 +15,22 @@ import {
 export interface IState {
   cars: CarViewModel[];
   colorOptions: IOption[];
+  sortOptions: IOption[];
   manufacturerOptions: IOption[];
   colorFilter?: string;
   manufacturerFilter?: string;
+  sort?: string;
 }
 
 const initialState: IState = {
   cars: [],
   colorOptions: [{ label: 'All car colors', checked: true }],
-  manufacturerOptions: [{ label: 'All manufacturers', checked: true }]
+  manufacturerOptions: [{ label: 'All manufacturers', checked: true }],
+  sortOptions: [
+    { label: 'None', checked: true },
+    { label: 'Mileage - Ascending', value: 'asc' },
+    { label: 'Mileage - Descending', value: 'des' }
+  ]
 };
 
 export const carsApp = (state: IState = initialState, action: CarsActionType) => {
@@ -49,7 +56,11 @@ export const carsApp = (state: IState = initialState, action: CarsActionType) =>
       }));
       return { ...state, manufacturerFilter: action.manufacturer, manufacturerOptions };
     case UPDATE_SORT:
-      return { ...state, sort: action.sort };
+      const sortOptions = state.sortOptions.map(option => ({
+        ...option,
+        checked: option.value === action.sort
+      }));
+      return { ...state, sort: action.sort, sortOptions };
     case UPDATE_PAGE:
       return { ...state, page: action.page };
     default:

@@ -15,6 +15,7 @@ describe('cars reducer', () => {
   const initialState: IState = {
     cars: [],
     colorOptions: [],
+    sortOptions: [],
     manufacturerOptions: []
   };
 
@@ -76,7 +77,10 @@ describe('cars reducer', () => {
   });
 
   it('should update sort', () => {
-    expect(carsApp(initialState, updateSort('asc'))).toEqual({ ...initialState, sort: 'asc' });
+    const sortOptions: IOption[] = [{ label: 'Ascending', value: 'asc' }, { label: 'Descending', value: 'des' }];
+    const result = carsApp({ ...initialState, sortOptions }, updateSort('asc'));
+    expect(result.sort).toEqual('asc');
+    expect(result.sortOptions[0].checked).toEqual(true);
   });
 
   it('should update page', () => {
