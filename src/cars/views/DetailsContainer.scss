@@ -1,0 +1,10 @@
+@import '../constants/base';
+
+.details-page {
+  .banner {
+    height: 330px;
+    width: 100%;
+    background-color: $color-1;
+    margin-bottom: 24px;
+  }
+}

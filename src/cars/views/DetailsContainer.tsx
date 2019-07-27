@@ -5,6 +5,8 @@ import { IState } from '../reducers/carsApp';
 import { DetailsContent } from '../components/details/Content';
 import { RouteComponentProps } from 'react-router-dom';
 
+import './DetailsContainer.scss';
+
 export interface IProps {
   match: {
     params: {
@@ -30,15 +32,20 @@ export class DetailsContainer extends React.Component<IProps> {
     const stockNumber = this.props.match.params.stockNumber;
     const isFavourite = this.props.favourites.indexOf(Number(stockNumber)) >= 0;
 
-    return this.props.car ? (
-      <DetailsContent
-        title={this.props.car.title}
-        description={this.props.car.description}
-        isFavourite={isFavourite}
-        toggleFavourite={this.toggleFavourite}
-      />
-    ) : (
-      ''
+    return (
+      <div className='details-page'>
+        <div className='banner' />
+        {this.props.car ? (
+          <DetailsContent
+            title={this.props.car.title}
+            description={this.props.car.description}
+            isFavourite={isFavourite}
+            toggleFavourite={this.toggleFavourite}
+          />
+        ) : (
+          ''
+        )}
+      </div>
     );
   }
 
