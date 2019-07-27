@@ -30,7 +30,7 @@ export interface IState {
   sort?: string;
 }
 
-const initialState: IState = {
+export const initialState: IState = {
   cars: [],
   favourites: [],
   page: 1,

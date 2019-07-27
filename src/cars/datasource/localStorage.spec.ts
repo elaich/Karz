@@ -8,4 +8,10 @@ describe('LocalStorage', () => {
     const state = loadState();
     expect(state).toEqual({ favourites: ['1', '2'] });
   });
+
+  it('initialize when not found', () => {
+    localStorage.clear();
+    const state = loadState();
+    expect(state).toEqual({ favourites: [] });
+  });
 });

@@ -4,10 +4,19 @@ import thunkMiddleware from 'redux-thunk';
 
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import { carsApp } from './cars/reducers/carsApp';
+import { carsApp, initialState } from './cars/reducers/carsApp';
+import { loadState, saveState } from './cars/datasource/localStorage';
 import { App } from './App';
 
-const store = createStore(carsApp, applyMiddleware(thunkMiddleware));
+const favourites = loadState();
+
+const store = createStore(carsApp, { ...initialState, ...favourites }, applyMiddleware(thunkMiddleware));
+
+store.subscribe(() => {
+  saveState({
+    favourites: store.getState().favourites
+  });
+});
 
 ReactDOM.render(
   <Provider store={store}>
