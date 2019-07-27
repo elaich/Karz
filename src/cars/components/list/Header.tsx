@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Select } from './common/Select';
-import { IOption } from '../models/option';
+import { Select } from '../common/Select';
+import { IOption } from '../../models/option';
 import './Header.scss';
 
 export interface IProps {

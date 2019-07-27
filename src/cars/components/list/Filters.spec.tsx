@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
 import { CarFilters } from './Filters';
-import { Select, IProps as ISelect } from './common/Select';
-import { Button } from './common/Button';
+import { Select, IProps as ISelect } from '../common/Select';
+import { Button } from '../common/Button';
 
 describe('Car Filters', () => {
   const props = {

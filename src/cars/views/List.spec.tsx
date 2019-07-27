@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
-import { CarCard } from '../components/Card';
-import { CarList } from '../components/List';
-import { CarHeader } from '../components/Header';
-import { CarFilters } from '../components/Filters';
-import { CarPagination } from '../components/Pagination';
+import { CarCard } from '../components/list/Card';
+import { CarList } from '../components/list/List';
+import { CarHeader } from '../components/list/Header';
+import { CarFilters } from '../components/list/Filters';
+import { CarPagination } from '../components/list/Pagination';
 import { ListView } from './List';
 
 describe('ListView', () => {

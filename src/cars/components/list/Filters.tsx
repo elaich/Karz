@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { IOption } from '../models/option';
-import { Select } from './common/Select';
-import { Button } from './common/Button';
+import { IOption } from '../../models/option';
+import { Select } from '../common/Select';
+import { Button } from '../common/Button';
 import './Filters.scss';
 
 export interface IProps {

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
 import { CarHeader } from './Header';
-import { Select } from './common/Select';
+import { Select } from '../common/Select';
 
 describe('CarHeader', () => {
   const props = {
