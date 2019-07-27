@@ -1,8 +1,8 @@
 @import '../../constants/base';
 
 .select {
+  position: relative;
   cursor: pointer;
-  min-width: 200px;
   font-family: $font-family;
   color: $color-2;
 
@@ -36,15 +36,16 @@
   .options {
     position: absolute;
     width: 100%;
-    min-width: 200px;
     padding: 0;
     list-style: none;
     background-color: #fff;
+    font-size: 14px;
     margin: 0;
 
     li {
-      padding: 12px;
+      padding: 8px;
       border: 1px solid $color-1;
     }
+    z-index: 100;
   }
 }
