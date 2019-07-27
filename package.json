@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
-    "start": "http-server-spa dist /index.html 3000",
+    "start": "npm run build && http-server-spa dist /index.html 3000",
     "test": "jest --watch ./src",
     "storybook": "start-storybook -p 6006",
     "fmt": "prettier --write \"src/**/*.tsx\"",

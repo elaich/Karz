@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { storiesOf } from '@storybook/react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import { CarCard } from '../src/cars/components/list/Card';
 import { LoadingCarCard } from '../src/cars/components/list/LoadingCard';
@@ -26,7 +27,11 @@ storiesOf('Cars', module)
       pictureUrl: 'http://localhost:3001/car.svg'
     };
 
-    return <CarCard car={carMapperFn(car)} />;
+    return (
+      <Router>
+        <CarCard car={carMapperFn(car)} />
+      </Router>
+    );
   })
   .add('LoadingCarCard', () => {
     return <LoadingCarCard />;
@@ -54,7 +59,11 @@ storiesOf('Cars', module)
       }
     ];
 
-    return <CarList cars={cars} />;
+    return (
+      <Router>
+        <CarList cars={cars} />
+      </Router>
+    );
   })
   .add('CarPagination', () => {
     const props = {
@@ -163,5 +172,9 @@ storiesOf('Cars', module)
       }
     };
 
-    return <ListView {...props} />;
+    return (
+      <Router>
+        <ListView {...props} />
+      </Router>
+    );
   });
