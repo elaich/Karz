@@ -9,6 +9,7 @@ export const UPDATE_COLOR_FILTER = 'UPDATE_COLOR_FILTER';
 export const UPDATE_MANUFACTURER_FILTER = 'UPDATE_MANUFACTURER_FILTER';
 export const UPDATE_SORT = 'UPDATE_SORT';
 export const UPDATE_PAGE = 'UPDATE_PAGE';
+export const UPDATE_PAGES = 'UPDATE_PAGES';
 
 interface IUpdateCarsAction {
   type: typeof UPDATE_CARS;
@@ -50,6 +51,11 @@ interface IUpdatePageAction {
   page: number;
 }
 
+interface IUpdatePagesAction {
+  type: typeof UPDATE_PAGES;
+  pages: number;
+}
+
 export type CarsActionType =
   | IUpdateCarsAction
   | IUpdateColorsAction
@@ -58,4 +64,5 @@ export type CarsActionType =
   | IUpdateColorFilterAction
   | IUpdateManufacturerFilterAction
   | IUpdateSortAction
-  | IUpdatePageAction;
+  | IUpdatePageAction
+  | IUpdatePagesAction;

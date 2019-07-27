@@ -8,6 +8,7 @@ import {
   UPDATE_MANUFACTURERS,
   UPDATE_CARS,
   UPDATE_PAGE,
+  UPDATE_PAGES,
   UPDATE_SORT,
   UPDATE_COLORS
 } from '../constants/ActionTypes';
@@ -65,6 +66,8 @@ export const carsApp = (state: IState = initialState, action: CarsActionType) =>
       return { ...state, sort: action.sort, sortOptions };
     case UPDATE_PAGE:
       return { ...state, page: action.page };
+    case UPDATE_PAGES:
+      return { ...state, pages: action.pages };
     default:
       return state;
   }

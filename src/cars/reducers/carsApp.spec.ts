@@ -2,6 +2,7 @@ import { carsApp, IState } from './carsApp';
 import { IOption } from '../models/option';
 import {
   updatePage,
+  updatePages,
   updateSort,
   updateCars,
   updateColorFilter,
@@ -86,5 +87,9 @@ describe('cars reducer', () => {
 
   it('should update page', () => {
     expect(carsApp(initialState, updatePage(10))).toEqual({ ...initialState, page: 10 });
+  });
+
+  it('should update pages', () => {
+    expect(carsApp(initialState, updatePages(100))).toEqual({ ...initialState, pages: 100 });
   });
 });

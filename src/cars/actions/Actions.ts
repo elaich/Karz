@@ -8,6 +8,7 @@ import {
   UPDATE_CARS,
   UPDATE_SORT,
   UPDATE_PAGE,
+  UPDATE_PAGES,
   UPDATE_CARS_COUNT,
   UPDATE_COLOR_FILTER,
   UPDATE_MANUFACTURER_FILTER,
@@ -56,10 +57,16 @@ export const updatePage = (page: number): CarsActionType => ({
   type: UPDATE_PAGE
 });
 
+export const updatePages = (pages: number): CarsActionType => ({
+  pages,
+  type: UPDATE_PAGES
+});
+
 export const fetchCars = (parameters?: IParameters) => (dispatch: any) => {
-  Api.fetchCars(parameters).then(({ cars, carsCount }) => {
+  Api.fetchCars(parameters).then(({ cars, totalCarsCount, totalPageCount }) => {
+    dispatch(updatePages(totalPageCount));
     dispatch(updateCars(cars.map(carMapperFn)));
-    dispatch(updateCarsCount(carsCount));
+    dispatch(updateCarsCount(totalCarsCount));
   });
 };
 

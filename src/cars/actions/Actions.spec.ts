@@ -85,4 +85,13 @@ describe('actions', () => {
 
     expect(actions.updatePage(2)).toEqual(expectedAction);
   });
+
+  it('should create an action to update pages', () => {
+    const expectedAction = {
+      type: types.UPDATE_PAGES,
+      pages: 9
+    };
+
+    expect(actions.updatePages(9)).toEqual(expectedAction);
+  });
 });
