@@ -22,6 +22,7 @@ describe('ListViewContainer', () => {
     sortOptions: [{ label: 'None', checked: true }, { label: 'Mileage - Descending', value: 'des' }],
     colorOptions: [{ label: 'All car colors', checked: true }, { label: 'White', value: 'white' }],
     manufacturerOptions: [{ label: 'All manufacturers', checked: true }, { label: 'Audi', value: 'Audi' }],
+    carsLoading: false,
     cars: [
       {
         title: 'Skoda Kodiaq',
@@ -54,6 +55,7 @@ describe('ListViewContainer', () => {
       expect(wrapper.find(ListView).prop('header')).toMatchObject({
         carsCount: props.carsCount,
         pageCount: props.cars.length,
+        carsLoading: props.carsLoading,
         sortOptions: props.sortOptions
       });
     });
@@ -129,7 +131,8 @@ describe('ListViewContainer', () => {
     it('props', () => {
       const wrapper = shallow(<ListViewContainer {...props} />);
       expect(wrapper.find(ListView).prop('list')).toMatchObject({
-        cars: props.cars
+        cars: props.cars,
+        carsLoading: props.carsLoading
       });
     });
   });

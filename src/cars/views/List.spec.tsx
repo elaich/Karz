@@ -39,7 +39,8 @@ describe('ListView', () => {
           link: '/view?sn=10110',
           image: 'http://localhost:3001/car.svg'
         }
-      ]
+      ],
+      carsLoading: false
     },
     filters: {
       colorOptions: [
@@ -77,7 +78,7 @@ describe('ListView', () => {
 
   it('list', () => {
     const wrapper = shallow(<ListView {...props} />);
-    expect(wrapper.find(CarList).props()).toMatchObject(props.list);
+    expect(wrapper.find(CarList).props()).toEqual(props.list);
   });
 
   it('filters', () => {

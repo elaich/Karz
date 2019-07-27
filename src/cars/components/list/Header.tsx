@@ -8,15 +8,14 @@ export interface IProps {
   pageCount: number;
   handleSelect: (value: string) => void;
   sortOptions: IOption[];
+  carsLoading: boolean;
 }
 
 export const CarHeader: React.FC<IProps> = props => (
   <div className='car-header'>
     <div className='left'>
-      <div className='heading'>Available cars</div>
-      <div className='title'>
-        Showing {props.pageCount} of {props.carsCount} results
-      </div>
+      <div className='heading'>{props.carsLoading ? 'Loading' : 'Available cars'}</div>
+      <div className='title'>{props.carsLoading || `Showing ${props.pageCount} of ${props.carsCount} results`}</div>
     </div>
     <Select header='Sort by' select={props.handleSelect} options={props.sortOptions} />
   </div>

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { CarViewModel } from '../../models/carViewModel';
 import './LoadingCard.scss';
 
-export const LoadingCarCard: React.FC<IProps> = props => (
+export const LoadingCarCard: React.FC<{}> = () => (
   <div className='loading-car'>
     <div className='loading-car__image'>
       <img />

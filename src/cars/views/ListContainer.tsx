@@ -23,6 +23,7 @@ interface IProps {
   carsCount: number;
   colorFilter: string;
   cars: CarViewModel[];
+  carsLoading: boolean;
   sortOptions: IOption[];
   colorOptions: IOption[];
   manufacturerFilter: string;
@@ -52,12 +53,14 @@ export class ListViewContainer extends React.Component<IProps> {
         pages: this.props.pages
       },
       header: {
+        carsLoading: this.props.carsLoading,
         carsCount: this.props.carsCount,
         pageCount: this.props.cars.length,
         sortOptions: this.props.sortOptions,
         handleSelect: this.sort
       },
       list: {
+        carsLoading: this.props.carsLoading,
         cars: this.props.cars
       },
       filters: {

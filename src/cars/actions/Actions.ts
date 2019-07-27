@@ -81,11 +81,15 @@ export const fetchCarsLoading = (loading: boolean): CarsActionType => ({
 });
 
 export const fetchCars = (parameters?: IParameters) => (dispatch: any) => {
-  Api.fetchCars(parameters).then(({ cars, totalCarsCount, totalPageCount }) => {
-    dispatch(updatePages(totalPageCount));
-    dispatch(updateCars(cars.map(carMapperFn)));
-    dispatch(updateCarsCount(totalCarsCount));
-  });
+  dispatch(fetchCarsLoading(true));
+  setTimeout(() => {
+    Api.fetchCars(parameters).then(({ cars, totalCarsCount, totalPageCount }) => {
+      dispatch(fetchCarsLoading(false));
+      dispatch(updatePages(totalPageCount));
+      dispatch(updateCars(cars.map(carMapperFn)));
+      dispatch(updateCarsCount(totalCarsCount));
+    });
+  }, 500);
 };
 
 export const fetchCar = (stockNumber: number) => (dispatch: any) => {
