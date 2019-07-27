@@ -20,7 +20,16 @@ module.exports = {
             loader: 'html-loader'
           }
         ]
-      }
+      },
+      {
+        test: /\.png$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {},
+          },
+        ],
+      },
     ]
   },
   resolve: {

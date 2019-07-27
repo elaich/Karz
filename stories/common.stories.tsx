@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { Select } from '../src/cars/components/common/Select';
 import { Button } from '../src/cars/components/common/Button';
+import { Header } from '../src/cars/components/common/Header';
+import { Footer } from '../src/cars/components/common/Footer';
 
 storiesOf('Common', module)
   .add('Select', () => {
@@ -28,4 +30,10 @@ storiesOf('Common', module)
       handleClick: () => console.log('Clicked')
     };
     return <Button {...props} />;
+  })
+  .add('Header', () => {
+    return <Header />;
+  })
+  .add('Footer', () => {
+    return <Footer />;
   });

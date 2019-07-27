@@ -1,0 +1,15 @@
+@import '../../constants/base';
+
+.footer {
+  display: flex;
+  border-top: 1px solid $color-1;
+  align-items: center;
+  justify-content: center;
+  color: $color-2;
+  font-size: 12px;
+  font-family: $font-family;
+  height: 80px;
+  p {
+    text-align: center;
+  }
+}
