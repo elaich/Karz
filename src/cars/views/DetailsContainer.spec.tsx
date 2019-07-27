@@ -9,7 +9,11 @@ describe('DetailsContainer', () => {
   };
 
   const props = {
-    stockNumber: 1010,
+    match: {
+      params: {
+        stockNumber: '1010'
+      }
+    },
     fetchCar: jest.fn(),
     car: {
       title: 'Chrysler Corssfire',
@@ -27,7 +31,7 @@ describe('DetailsContainer', () => {
 
   it('renders and fetches', () => {
     expect(wrapper).toHaveLength(1);
-    expect(props.fetchCar).toBeCalledWith(props.stockNumber);
+    expect(props.fetchCar).toBeCalledWith(1010);
   });
 
   it('passes car props', () => {

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { CarCard } from './Card';
-import { CarViewModel } from '../models/carViewModel';
+import { CarViewModel } from '../../models/carViewModel';
 
 export interface IProps {
   cars: CarViewModel[];

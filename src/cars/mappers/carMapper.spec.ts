@@ -10,18 +10,18 @@ describe('Car Mapper', () => {
       modelName: 'Marea',
       mileage: {
         number: 100141,
-        unit: 'km',
+        unit: 'km'
       },
       fuelType: 'Diesel',
       color: 'white',
-      pictureUrl: 'http://localhost:3001/car.svg',
+      pictureUrl: 'http://localhost:3001/car.svg'
     };
 
     expect(carMapperFn(car)).toEqual({
       title: 'Fiat Marea',
       description: 'Stock # 41400 - 100.141 KM - Diesel - White',
-      link: '/view?sn=41400',
-      image: 'http://localhost:3001/car.svg',
+      link: '/41400',
+      image: 'http://localhost:3001/car.svg'
     });
   });
 });
