@@ -1,0 +1,9 @@
+@import '../../constants/base';
+
+.link {
+  color: $color-3;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
