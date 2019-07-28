@@ -45,6 +45,10 @@
     li {
       padding: 8px;
       border: 1px solid $color-1;
+      &:hover {
+        background-color: $color-3;
+        color: #fff;
+      }
     }
     z-index: 100;
   }
