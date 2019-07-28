@@ -8,6 +8,7 @@ describe('CarHeader', () => {
     pageCount: 10,
     carsCount: 100,
     handleSelect: jest.fn(),
+    carsLoading: false,
     sortOptions: [
       { label: 'None', checked: true },
       { label: 'Mileage - Ascending', value: 'asc' },

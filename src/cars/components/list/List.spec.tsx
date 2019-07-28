@@ -27,7 +27,8 @@ describe('Car List', () => {
     ];
 
     const props = {
-      cars
+      cars,
+      carsLoading: false
     };
 
     const wrapper = shallow(<CarList {...props} />);

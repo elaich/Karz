@@ -13,6 +13,7 @@ describe('ListView', () => {
       carsCount: 100,
       pageCount: 10,
       handleSelect: jest.fn(),
+      carsLoading: false,
       sortOptions: [
         { label: 'None', checked: true },
         { label: 'Mileage - Ascending', value: 'asc' },
