@@ -9,5 +9,7 @@ export const messages = {
   of favourite items`,
   'favourite.remove': `
   This car is in your favourite items list, click the button if you want to
-  remove it`
+  remove it`,
+  'notfound.title': '404 - Not Found',
+  'notfound.p1': 'Sorry, the page you are looking for does not exist'
 };

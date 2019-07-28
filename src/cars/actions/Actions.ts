@@ -92,10 +92,12 @@ export const fetchCars = (parameters?: IParameters) => (dispatch: any) => {
   }, 500);
 };
 
-export const fetchCar = (stockNumber: number) => (dispatch: any) => {
-  Api.fetchCar(stockNumber).then(({ car }) => {
-    dispatch(updateCar(carMapperFn(car)));
-  });
+export const fetchCar = (stockNumber: number, history: any) => (dispatch: any) => {
+  Api.fetchCar(stockNumber)
+    .then(({ car }) => {
+      dispatch(updateCar(carMapperFn(car)));
+    })
+    .catch(() => history.push('/_404'));
 };
 
 export const fetchColors = () => (dispatch: any) => {

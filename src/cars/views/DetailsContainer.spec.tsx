@@ -14,6 +14,7 @@ describe('DetailsContainer', () => {
         stockNumber: '1010'
       }
     },
+    history: {},
     fetchCar: jest.fn(),
     car: {
       title: 'Chrysler Corssfire',
@@ -31,7 +32,7 @@ describe('DetailsContainer', () => {
 
   it('renders and fetches', () => {
     expect(wrapper).toHaveLength(1);
-    expect(props.fetchCar).toBeCalledWith(1010);
+    expect(props.fetchCar).toBeCalledWith(1010, {});
   });
 
   it('passes car props', () => {

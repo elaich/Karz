@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { CarCard } from './Card';
 import { shallow } from 'enzyme';
-import { Link } from 'react-router-dom';
+import { Link } from '../common/Link';
 
 describe('CarCard', () => {
   const render = (iProps: any) => {
@@ -36,6 +36,6 @@ describe('CarCard', () => {
 
   it('link', () => {
     const wrapper = render(props);
-    expect(wrapper.find('.link').prop('to')).toEqual(car.link);
+    expect(wrapper.find(Link).prop('to')).toEqual(car.link);
   });
 });

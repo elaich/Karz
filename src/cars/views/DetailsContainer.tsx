@@ -13,7 +13,8 @@ export interface IProps {
       stockNumber: string;
     };
   };
-  fetchCar: (stockNumber: number) => void;
+  history: any;
+  fetchCar: (stockNumber: number, history: any) => void;
   car: {
     title: string;
     description: string;
@@ -25,7 +26,7 @@ export interface IProps {
 export class DetailsContainer extends React.Component<IProps> {
   public componentDidMount() {
     const stockNumber = this.props.match.params.stockNumber;
-    this.props.fetchCar(Number(stockNumber));
+    this.props.fetchCar(Number(stockNumber), this.props.history);
   }
 
   public render() {
@@ -57,8 +58,8 @@ export class DetailsContainer extends React.Component<IProps> {
 
 const mapDispatchToProps = (dispatch: any) => {
   return {
-    fetchCar: (stockNumber: number) => {
-      dispatch(fetchCar(stockNumber));
+    fetchCar: (stockNumber: number, history: any) => {
+      dispatch(fetchCar(stockNumber, history));
     },
     toggleFavourite: (stockNumber: number) => {
       dispatch(toggleFavourite(stockNumber));

@@ -32,12 +32,17 @@ module.exports = {
       },
     ]
   },
+  output: {
+    publicPath: '/'
+  },
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.json']
   },
   plugins: [
     new HtmlWebPackPlugin({
       template: './public/index.html',
+        'base': 'http://example.com/some/page.html',
+
       filename: './index.html'
     })
   ]
