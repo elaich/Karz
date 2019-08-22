@@ -6,6 +6,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "start": "npm run build && servor dist /index.html 3000",
+    "server": "cd mock-server && npm start",
     "test": "jest --watch ./src",
     "storybook": "start-storybook -p 6006",
     "fmt": "prettier --write \"src/**/*.tsx\"",
