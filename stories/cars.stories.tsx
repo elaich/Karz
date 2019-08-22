@@ -2,6 +2,10 @@ import * as React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { colorsReducer } from '../src/cars/reducers/colorsReducer';
+import { Provider } from 'react-redux';
+import thunkMiddleware from 'redux-thunk';
+import { createStore, applyMiddleware } from 'redux';
 
 import { CarCard } from '../src/cars/components/list/Card';
 import { LoadingCarCard } from '../src/cars/components/list/LoadingCard';
@@ -11,6 +15,9 @@ import { CarFilters } from '../src/cars/components/list/Filters';
 import { CarPagination } from '../src/cars/components/list/Pagination';
 import { ListView } from '../src/cars/views/List';
 import { carMapperFn } from '../src/cars/mappers/carMapper';
+import ColorsSelect from '../src/cars/components/list/ColorsSelect';
+
+const store = createStore(colorsReducer, applyMiddleware(thunkMiddleware));
 
 storiesOf('Cars', module)
   .add('CarCard', () => {
@@ -110,6 +117,13 @@ storiesOf('Cars', module)
     };
 
     return <CarFilters {...props} />;
+  })
+  .add('ColorsSelect', () => {
+    return (
+      <Provider store={store}>
+        <ColorsSelect />
+      </Provider>
+    );
   })
   .add('ListView', () => {
     const props = {
